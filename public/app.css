@@ -1,0 +1,165 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+/* Dispositivos Móviles (Pequeños y Medianos) */
+@media (max-width: 991.98px) {
+    .sidebar-mobile-theme {
+        position: absolute;
+        z-index: 1050; /* Por encima de todo */
+        width: 280px;  /* Ancho fijo para que no cubra toda la pantalla */
+        left: -280px;  /* Escondido por defecto */
+        transition: all 0.3s ease;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    }
+
+    /* Clase para mostrarlo (la activarías con JS o un checkbox) */
+    .sidebar-mobile-theme.active {
+        left: 0;
+    }
+}
+
+/* Dispositivos Grandes (Escritorio) */
+@media (min-width: 992px) {
+    .sidebar-mobile-theme {
+        position: relative;
+        left: 0;
+        box-shadow: none;
+        border-right: 1px solid #dee2e6;
+    }
+}
+
+
+/* Sidebar */
+.sidebar {
+    transition: all 0.3s ease-in-out;
+    width: 250px; /* Ancho fijo inicial */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estado Oculto: Reducimos el ancho a 0 y quitamos padding */
+.sidebar.sidebar-hidden {
+    width: 0 !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden; /* Evita que el texto se vea mientras se cierra */
+}
+
+/* Contenido Principal */
+.content-area {
+    transition: all 0.3s ease-in-out;
+    flex: 1; /* Esto hace que el contenido tome TODO el espacio restante automáticamente */
+    width: auto;
+}
+
+#menu_adicional{
+    display: none;      /* Lo ocultamos por defecto */
+}
+
+/* Cuando el sidebar desaparece, el contenido simplemente fluye al 100% */
+.content-expanded {
+    min-width: 100%;
+}
+@media (max-width: 800.98px) {
+    /* El contenedor padre debe ser relativo */
+    .row { position: relative; } 
+
+    #sidebar {
+        position: absolute; /* Flota sobre el contenido */
+        z-index: 1050;      /* Se asegura de estar arriba */
+        width: 280px;       /* Ancho fijo en móvil */
+        height: 100%;       /* O min-vh-100 */
+        display: none;      /* Lo ocultamos por defecto */
+    }
+    #btn_nav_izq{
+        display: none;      /* Lo ocultamos por defecto */
+
+    }
+   #menu_adicional {
+        display: block; /* CORRECCIÓN: 'block' en lugar de 'show' */
+        /* Aquí puedes darle estilo al menú que quieres que aparezca al cargar */
+    }
+
+    #sidebar.show {
+        display: block;     /* Solo se ve cuando activas la clase 'show' */
+    }
+
+    #mainContent {
+        width: 100% !important; /* Forzamos que el contenido ocupe todo el ancho */
+        flex: 0 0 100%;         /* Evita que Bootstrap lo achique */
+        max-width: 100%;
+    }
+}
+/* Estilo para el ítem activo */
+.nav-link.active-item {
+    background-color: #e7f1ff !important; /* Azul muy claro */
+    color: #0d6efd !important;           /* Texto azul Bootstrap */
+    font-weight: 600;                    /* Texto un poco más grueso */
+    border-left: 4px solid #0d6efd;      /* Línea indicadora a la izquierda */
+    border-radius: 0 4px 4px 0;          /* Redondeado solo a la derecha */
+}
+
+/* Efecto hover para los demás */
+.nav-link:hover {
+    background-color: #f1f3f5;
+    color: #333;
+}
+.nav-link i {
+    font-size: 1.1rem; /* Tamaño un poco más grande que el texto */
+    width: 20px;       /* Ancho fijo para que todos los textos queden alineados verticalmente */
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+/* Efecto opcional: el icono se mueve un poco al pasar el mouse */
+.nav-link:hover i {
+    transform: scale(1.2);
+    color: #0d6efd;
+}
+
+/* Color del icono cuando está activo */
+.active-item i {
+    color: #0d6efd;
+}
+.option_main{
+color: #333;
+}
+#icon_main{
+color: #333 !important;
+}
+
+/* Rotación de la flecha al colapsar */
+[data-bs-toggle="collapse"].collapsed .bi-chevron-down {
+    transform: rotate(-90deg);
+}
+
+.bi-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+/* Efecto hover en el título de la categoría */
+div[data-bs-toggle="collapse"]:hover {
+    background-color: #e9ecef;
+}
+
+/* Estilo para la línea lateral de submenús */
+.nav.flex-column.border-start {
+    border-color: #dee2e6 !important;
+    margin-left: 1.2rem !important;
+}
+
+#chat-box p {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+.text-end { background-color: #e9ecef; margin-left: 20%; }
+.text-start { background-color: #d1e7ff; margin-right: 20%; }

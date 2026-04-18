@@ -1,0 +1,40 @@
+/* @import 'tailwindcss'; */
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: absolute;
+        z-index: 1000;
+        width: 260px;
+    }
+}
+
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+/* Sidebar */
+.sidebar {
+    transition: all 0.3s ease;
+}
+
+.sidebar-hidden {
+    display: none !important;
+}
+
+/* Contenido Principal */
+.content-area {
+    transition: all 0.3s ease;
+}
+
+/* Esta es la clase que hace la magia */
+.content-expanded {
+    flex: 0 0 100% !important; /* Anula el flex-grow, flex-shrink y basis de Bootstrap */
+    max-width: 100% !important; /* Anula el ancho máximo de la columna original */
+    width: 100% !important;
+}

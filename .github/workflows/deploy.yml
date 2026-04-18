@@ -1,0 +1,50 @@
+name: Deploy a cPanel (Blindado)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener código
+        uses: actions/checkout@v3
+
+      # PASO 1: Sincronizar el "Corazón" de Laravel
+      - name: Desplegar laravel_app
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /laravel_app/
+          # ESTO ES VITAL:
+          state-name: .laravel_app_deploy.json # Crea un registro independiente para esta carpeta
+          log-level: verbose # Para que en Actions veas exactamente qué archivo está tocando
+          exclude: |
+            **/node_modules/**
+            **/vendor/**
+            **/public/**
+            .env
+            .git*
+            .github/**
+            storage/logs/*
+            database/seeders/*
+
+      # PASO 2: Sincronizar solo la carpeta Pública
+      - name: Desplegar public_html
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./public/
+          server-dir: /public_html/
+          state-name: .public_html_deploy.json # Evita que se cruce con el paso 1
+          exclude: |
+            **/index.php
+            index.php
+            ./index.php

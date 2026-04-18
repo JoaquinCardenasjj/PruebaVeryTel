@@ -3,7 +3,7 @@ name: Deploy a cPanel (Blindado)
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:

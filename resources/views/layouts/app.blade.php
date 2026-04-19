@@ -94,12 +94,7 @@
             </div>
             {{-- CONTENIDO --}}
             <div id="mainContent" class="col-md-9 col-lg-10 p-4 content-area">
-                <div class="container text-center mb-4" style="min-height: 60px;">
-
-                </div>
                 @yield('content')
-                <div class="container text-center mb-4" style="min-height: 60px;">
-                </div>
             </div>
 
         </div>

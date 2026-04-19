@@ -1,3 +1,32 @@
+Plataforma de Gestión de Cámaras - Frontend (Laravel)
+Este proyecto es el cliente de una arquitectura distribuida que consume una API REST desarrollada en Django. Permite la visualización de cámaras, gestión de tickets y visualización de métricas en un Dashboard interactivo.
+
+Requisitos Previos
+Antes de comenzar, asegúrate de tener instalado:
+
+PHP >= 8.1
+
+Composer
+
+Un servidor local (XAMPP, Laragon, Docker o similar)
+
+Instalación y Configuración
+Sigue estos pasos para poner en marcha el proyecto una vez lo hayas clonado:
+
+Instalar dependencias de PHP
+Ejecuta el siguiente comando en la raíz del proyecto para descargar todas las librerías necesarias (incluyendo el cliente HTTP de Laravel):
+
+Bash
+composer install
+
+Iniciar el servidor
+Si estás usando el servidor integrado de PHP:
+
+Bash
+php artisan serve
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

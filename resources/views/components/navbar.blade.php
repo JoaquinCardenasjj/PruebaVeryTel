@@ -5,7 +5,7 @@
     </button>
     <div class="container">
 
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="/index.php">
             <img src="{{ asset('images/logo-tuayuda.png') }}"
                 alt="Tu ayuda IO"
                 width="40"
@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse" id="nav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Inicio</a>
+                    <a class="nav-link" href="/index.php">Inicio</a>
                 </li>
             </ul>
         </div>

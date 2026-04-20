@@ -1,3 +1,16 @@
+Stack Elegido
+Para el desarrollo de esta solución se optó por un stack Decoupled (Desacoplado):
+
+Backend: Python 3.x con Django REST Framework (DRF).
+
+Razón: La robustez de Django para el manejo de modelos y la facilidad de DRF para exponer una API limpia y estandarizada. 
+Su sistema de migraciones es ideal para gestionar cambios en la base de datos de forma segura.
+
+Frontend: PHP con Laravel.
+
+Razón: Aprovechando que tenia un sitio web publicado en ese lenguaje y con una plantilla de navegacion opte, sin embargo podria haberlo echo
+sin problema con angular u otro lenguaje front end.
+
 1. Arquitectura de Conectividad: Patrón API Gateway / Proxy
 Decisión: Se implementó un Proxy en Laravel para realizar las peticiones al backend de Django.
 
@@ -50,5 +63,9 @@ Justificación: * Integridad del Dashboard: Para que las métricas (KPIs) y el m
  Reportes y KPIs 1 hora
  Total 4.5 horas
  Publicacion codigo backend 0.5 hora
+ 
+  ¿Qué haría diferente con más tiempo? 
+ Implementar autenticación basada en JWT (JSON Web Tokens), validacion de formularios mostrar alertas con un buen diseño, 
+ implemantar loaders y en lo posible leyendas para ayudar a que la experiencia de usuario sea mas entendible
  
 	  
